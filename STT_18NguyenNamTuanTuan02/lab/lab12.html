@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Task 1: In tên người chơi và số bàn thắng
+for (const [index, player] of game.scored.entries()) {
+  console.log(`Bàn thắng ${index + 1}: ${player}`);
+}
+
+// Task 2: Tính số lẻ trung bình và in ra bảng điều khiển
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) {
+  average += odd;
+}
+average /= odds.length;
+console.log(`Số lẻ trung bình: ${average}`);
+
+// Task 3: In 3 tỷ lệ cược ra bảng điều khiển
+console.log(`Tỷ lệ thắng ${game.team1}: ${game.odds.team1}`);
+console.log(`Tỷ lệ hòa: ${game.odds.draw}`);
+console.log(`Tỷ lệ thắng ${game.team2}: ${game.odds.team2}`);
+
+// Task 4: Tạo đối tượng 'người ghi điểm' và in ra bảng điều khiển
+const goalScorers = {};
+for (const player of game.scored) {
+  if (goalScorers[player]) {
+    goalScorers[player] += 1;
+  } else {
+    goalScorers[player] = 1;
+  }
+}
+console.log(goalScorers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Bản đồ gameEvents
+const gameEvents = {
+  events: [
+    { minute: 17, eventType: '⚽ BÀN THẮNG' },
+    { minute: 36, eventType: '🔁 THAY NGƯỜI' },
+    { minute: 47, eventType: '⚽ BÀN THẮNG' },
+    { minute: 61, eventType: '🔁 THAY NGƯỜI' },
+    { minute: 64, eventType: '🟨 THẺ VÀNG' },
+    { minute: 69, eventType: '🟥 THẺ ĐỎ' },
+    { minute: 70, eventType: '🔁 THAY NGƯỜI' },
+    { minute: 75, eventType: '⚽ BÀN THẮNG' },
+    { minute: 80, eventType: '⚽ BÀN THẮNG' },
+    { minute: 92, eventType: '🔁 THAY NGƯỜI' }
+  ]
+};
+
+// Task 1: Tạo một mảng sự kiện không trùng lặp
+const uniqueEvents = [...new Set(gameEvents.events.map(event => event.eventType))];
+console.log(uniqueEvents);
+
+// Task 2: Xóa sự kiện thẻ vàng ở phút 64
+const updatedEvents = gameEvents.events.filter(event => !(event.minute === 64 && event.eventType === '🟨 THẺ VÀNG'));
+console.log(updatedEvents);
+
+// Task 3: Tính trung bình cứ 9 phút có một sự kiện xảy ra
+const averageInterval = 90 / gameEvents.events.length;
+console.log(`Trung bình cứ ${averageInterval} phút lại có một sự kiện xảy ra`);
+
+// Task 4: In từng phần tử của gameEvents theo nửa hiệp
+for (const event of gameEvents.events) {
+  const half = event.minute <= 45 ? 'Hiệp I' : 'Hiệp II';
+  console.log(`[${half}] ${event.minute}: ${event.eventType}`);
+}
+    </script>
+</body>
+</html>

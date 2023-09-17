@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Tạo một mảng người chơi cho mỗi đội (biến 'players1' và 'players2')
+var players1 = [];
+var players2 = [];
+
+// 2. Tạo mảng cầu thủ thành viên cho Bayern Munich (đội 1)
+var gk = 'Neuer'; // Thủ môn
+var fieldPlayers = ['Player1', 'Player2', 'Player3', 'Player4', 'Player5', 'Player6', 'Player7', 'Player8', 'Player9', 'Player10']; // Cầu thủ trên sân
+
+// 3. Tạo mảng 'allPlayers' chứa tất cả người chơi của cả hai đội
+var allPlayers = players1.concat(players2);
+
+// 4. Tạo mảng 'players1Final' chứa tất cả các cầu thủ ban đầu của team1 cộng với 'Thiago', 'Coutinho' và 'Perisic'
+var players1Final = players1.concat(['Thiago', 'Coutinho', 'Perisic']);
+
+// 5. Tạo biến cho mỗi số lẻ từ đối tượng game.odds
+var { team1, draw, team2 } = game.odds;
+
+// 6. Viết hàm 'printGoals' để in ra tên của từng cầu thủ và tổng số bàn thắng
+function printGoals(...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored`);
+}
+
+// 7. In ra đội có tỷ lệ cược thấp hơn sẽ thắng nếu không sử dụng if/else hoặc toán tử ba ngôi
+team1 < team2 && console.log("Team 1 is more likely to win");
+team2 < team1 && console.log("Team 2 is more likely to win");
+draw < team1 && draw < team2 && console.log("It's likely to be a draw");
+
+// Dữ liệu thử nghiệm với 6: Davies, Muller, Lewandowski, Kimmich
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertToCamelCase(text) {
+  // Chuyển đổi tất cả các từ thành chữ thường và chuyển đổi từ đầu tiên của từ sau "_" thành chữ hoa
+  return text.toLowerCase().replace(/_./g, function(match) {
+    return match.charAt(1).toUpperCase();
+  });
+}
+
+// Test cases
+var testCases = ['gạch dưới_case', 'tên đầu tiên', 'Một số_Biến', 'tính_AGE', 'bị trì hoãn_khởi hành'];
+
+testCases.forEach(function(caseText) {
+  var converted = convertToCamelCase(caseText);
+  console.log(caseText + ' ➡️ ' + converted + ' ✅');
+});
+
+    </script>
+</body>
+</html>

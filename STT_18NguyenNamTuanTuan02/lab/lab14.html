@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Hàm chuyển đổi tên biến thành CamelCase
+function convertToCamelCase(variableName) {
+  const words = variableName.split('_');
+  const camelCaseWords = words.map((word, index) => {
+    if (index === 0) {
+      return word.toLowerCase();
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  });
+  return camelCaseWords.join('');
+}
+
+// Hàm xử lý sự kiện khi nhấn nút
+function handleConversion() {
+  const inputText = document.getElementById('inputText').value;
+  const variableNames = inputText.split('\n');
+  
+  variableNames.forEach(variableName => {
+    const convertedName = convertToCamelCase(variableName);
+    console.log(`${variableName} => ${convertedName}`);
+  });
+}
+
+// Gắn kết sự kiện cho nút chuyển đổi tên
+document.getElementById('convertButton').addEventListener('click', handleConversion);
+    </script>
+    <textarea id="inputText" rows="5" cols="30"></textarea>
+    <button id="convertButton">Chuyển đổi tên</button>
+</body>
+</html>

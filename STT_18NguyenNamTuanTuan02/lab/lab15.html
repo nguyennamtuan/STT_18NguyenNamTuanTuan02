@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const poll = {
+    question: "what is your favourite programming language?",
+    options: ["0: javascript", "1: python", "2: rust", "3: c++"],
+    answers: new Array(4).fill(0),
+
+
+  registerNewAnswer: function () {
+    var answer = prompt(
+      this.question +
+        "\n" +
+        this.options.join("\n") +
+        "\n\nNhập số tùy chọn đã chọn:"
+    );
+
+    if (answer === null || answer === "") {
+      return;
+    }
+
+    answer = Number(answer);
+    if (isNaN(answer) || answer < 0 || answer >= this.answers.length) {
+      alert("Tùy chọn không hợp lệ!");
+      return;
+    }
+
+    this.answers[answer]++;
+    this.displayResults();
+  },
+
+  displayResults: function (type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log("Kết quả thăm dò là " + this.answers.join(", "));
+    } else {
+      console.log("Loại không hợp lệ!");
+    }
+  },
+};
+
+// Thử nghiệm với dữ liệu
+
+poll.registerNewAnswer();
+poll.registerNewAnswer();
+poll.registerNewAnswer();
+
+poll.displayResults("array");
+poll.displayResults("string");
+    </script>
+</body>
+</html>

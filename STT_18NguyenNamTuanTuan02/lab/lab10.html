@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Chọn phần tử có lớp 'lại' và đính kèm trình xử lý sự kiện nhấp chuột
+var restartButton = document.querySelector('.lai');
+restartButton.addEventListener('click', handleRestart);
+
+// 2. Hàm xử lý khi nhấp chuột vào nút khởi động lại (restart)
+function handleRestart() {
+  // Khôi phục các giá trị ban đầu của 'điểm' và biến 'số bí mật'
+  var score = 0;
+  var secretNumber = Math.floor(Math.random() * 20) + 1;
+
+  // Khôi phục các điều kiện ban đầu của tin nhắn, số, điểm và đoán lĩnh vực
+  document.querySelector('.tin-nhan').textContent = 'Bắt đầu đoán...';
+  document.querySelector('.so').textContent = '?';
+  document.querySelector('.diem').textContent = score;
+  document.querySelector('.doan').value = '';
+
+  // Đồng thời khôi phục màu nền ban đầu (#222) và chiều rộng số (15rem)
+  document.querySelector('.so').style.backgroundColor = '#222';
+  document.querySelector('.so').style.width = '15rem';
+}
+    </script>
+</body>
+</html>
